@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+    <head>
+     <title>Pizza Luigi</title>
+        <link rel="icon" href="images/luigi.ico" type="image/x-icon">
+     <link rel="stylesheet" href="css/luigi.css">
+    </head>
+    <body>
+        <h1>Pizza Luigi</h1>
+        <img src="images/luigi.jpg" alt="pizza" class="fullwidth">
+        <h2>Goede <span th:text="${moment}"></span></h2>
+        <dt>Adres</dt>
+        <dd th:object="${zaakvoerder.adres}" th:text="|*{straat} *{huisNr} *{postcode} *{gemeente}|"></dd>
+        <dl th:object="${zaakvoerder}">
+             <dt>Naam</dt>
+             <dd th:text="*{naam}"></dd>
+            <dt>Aantal kinderen</dt>
+            <dd th:text="*{aantalKinderen}"></dd>
+            <dt>Gehuwd</dt>
+            <dd th:text="*{gehuwd} ? 'Ja' : 'Nee'"></dd>
+        </dl>
+    </body>
+</html>
